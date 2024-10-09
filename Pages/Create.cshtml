@@ -1,0 +1,23 @@
+﻿@page
+@model TA_Apricode.Pages.CreateModel
+
+<h2>Создать игру</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Game.Title">Название</label>
+        <input asp-for="Game.Title" class="form-control" />
+        <span asp-validation-for="Game.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Game.Developer">Разработчик</label>
+        <input asp-for="Game.Developer" class="form-control" />
+        <span asp-validation-for="Game.Developer" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Game.Genres">Жанры</label>
+        <input asp-for="Game.Genres" class="form-control" placeholder="Введите жанры через запятую" />
+        <span asp-validation-for="Game.Genres" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Создать</button>
+</form>

@@ -1,0 +1,35 @@
+﻿@page
+@model TA_Apricode.Pages.DeleteModel
+
+<h2>Удалить игру</h2>
+
+<h3>Вы уверены, что хотите удалить эту игру?</h3>
+<div>
+    <h4>Игра</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Название
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Game.Title
+        </dd>
+        <dt class="col-sm-2">
+            Разработчик
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Game.Developer
+        </dd>
+        <dt class="col-sm-2">
+            Жанры
+        </dt>
+        <dd class="col-sm-10">
+            @string.Join(", ", Model.Game.Genres)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-page="./Index">Вернуться к списку</a>
+    </form>
+</div>

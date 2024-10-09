@@ -1,13 +1,7 @@
 ﻿@TA_Apricode_HostAddress = https://localhost:7235
 
-POST {{TA_Apricode_HostAddress}}/api/games
-Content-Type: application/json
 
-{
-    "title": "The Witcher 3",
-    "developer": "CD Projekt Red",
-    "genres": ["RPG", "Adventure"]
-}
+GET {{TA_Apricode_HostAddress}}/api/games?genre=string
 
 ###
 
@@ -15,6 +9,13 @@ GET {{TA_Apricode_HostAddress}}/api/games/all
 
 ###
 
-GET {{TA_Apricode_HostAddress}}/api/games?genre=RPG
+POST {{TA_Apricode_HostAddress}}/api/games
+Content-Type: application/json
+
+{
+    "title": "Example Game",
+    "developer": "Example Developer",
+    "genres": ["Action", "Adventure"]
+}
 
 ###

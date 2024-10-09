@@ -1,4 +1,4 @@
-namespace TA_Apricode 
+namespace TA_Apricode
 {
     public class Program
     {

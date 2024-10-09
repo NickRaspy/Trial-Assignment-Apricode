@@ -15,12 +15,16 @@ namespace TA_Apricode
 
             services.AddScoped<IGameRepository, GameRepository>();
 
+            services.AddRazorPages();
+
+            services.AddRazorComponents();
+
             services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment()) 
+            if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
@@ -29,7 +33,11 @@ namespace TA_Apricode
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => endpoints.MapControllers());
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+                endpoints.MapControllers();
+            });
         }
     }
 }

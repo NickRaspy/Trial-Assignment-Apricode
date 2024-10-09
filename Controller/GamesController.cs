@@ -39,10 +39,23 @@ namespace TA_Apricode.Controller
         }
 
         [HttpPost]
-        public async Task<ActionResult<Game>> PostGame(Game game)
+        public async Task<ActionResult<Game>> PostGame([FromBody] Game game)
         {
-            await _repository.AddGame(game);
-            return CreatedAtAction(nameof(GetGame), new { id = game.Id }, game);
+            if (game == null || string.IsNullOrWhiteSpace(game.Title) || string.IsNullOrWhiteSpace(game.Developer))
+            {
+                return BadRequest("Game data is incomplete.");
+            }
+
+            try
+            {
+                await _repository.AddGame(game);
+                return CreatedAtAction(nameof(GetGame), new { id = game.Id }, game);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding game: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
         }
 
         [HttpPut("{id}")]
